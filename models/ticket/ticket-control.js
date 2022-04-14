@@ -44,12 +44,12 @@ class TicketControl {
 
     next() {
         this.lastTicket += 1;
-
-        this.tickets.push(new Ticket(this.lastTicket, null));
+        const ticket = new Ticket(this.lastTicket, null);
+        this.tickets.push(ticket);
 
         this.saveDB();
 
-        return 'Ticket ' + ticket.numero;
+        return 'Ticket ' + ticket.number;
     }
 
     serveTicket(desk) {
