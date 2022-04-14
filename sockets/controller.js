@@ -1,4 +1,4 @@
-const TicketControl = require('../models/ticket-control');
+const TicketControl = require('../models/ticket/ticket-control');
 
 const ticketControl = new TicketControl();
 

@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 
+const Ticket = require('Ticket');
 class TicketControl {
 
     constructor() {
@@ -23,7 +24,7 @@ class TicketControl {
 
 
     init() {
-        const { lastTicket, dateToday, tickets, lastfourtickets } = require('../db/data.json');
+        const { lastTicket, dateToday, tickets, lastfourtickets } = require('../../db/data.json');
 
         //if its an different day
         if (dateToday !== this.dateToday) {
@@ -37,8 +38,38 @@ class TicketControl {
 
 
     saveDB() {
-        const dbPath = path.join(__dirname, '../db/data.json');
+        const dbPath = path.join(__dirname, '../../db/data.json');
         fs.writeFileSync(dbPath, JSON.stringify(this.toJson));
+    }
+
+    next() {
+        this.lastTicket += 1;
+
+        this.tickets.push(new Ticket(this.lastTicket, null));
+
+        this.saveDB();
+
+        return 'Ticket' = ticket.numero;
+    }
+
+    serveTicket(desk) {
+        if (this.tickets.length === 0) {
+            return null;
+        }
+
+        const ticket = this.tickets.shift();
+
+        ticket.desk = desk;
+
+        this.lastfourtickets.unshift(ticket);
+
+        if (this.lastfourtickets.length > 4) {
+            this.lastfourtickets.splice(4);
+        }
+
+        this.saveDB();
+
+        return ticket;
     }
 }
 
