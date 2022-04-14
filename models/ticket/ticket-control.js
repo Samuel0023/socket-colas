@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 
-const Ticket = require('Ticket');
+const Ticket = require('./ticket');
 class TicketControl {
 
     constructor() {
@@ -49,7 +49,7 @@ class TicketControl {
 
         this.saveDB();
 
-        return 'Ticket' = ticket.numero;
+        return 'Ticket ' + ticket.numero;
     }
 
     serveTicket(desk) {
