@@ -4,7 +4,7 @@ const ticketControl = new TicketControl();
 
 const socketController = (socket) => {
 
-    console.log('Cliente conectado', socket.id);
+    //console.log('Cliente conectado', socket.id);
 
     socket.emit('last-ticket', ticketControl.lastTicket);
 
@@ -12,6 +12,10 @@ const socketController = (socket) => {
         const next = ticketControl.next();
         callback(next);
 
+    });
+
+    socket.on('serve-ticket', (payload, callback) => {
+        console.log(payload);
     });
 
 }
