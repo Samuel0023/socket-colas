@@ -13,9 +13,29 @@ const socketController = (socket) => {
         callback(next);
 
     });
+    //                          payload,callback
+    socket.on('serve-ticket', ({ desk }, callback) => {
+        //check if we dont find a desk
+        if (!desk) {
+            return callback({
+                ok: false,
+                msg: 'The Desk is Required'
+            });
+        }
 
-    socket.on('serve-ticket', (payload, callback) => {
-        console.log(payload);
+        var ticket;
+        if (ticket = ticketControl.serveTicket(desk)) {
+            callback({
+                ok: true,
+                msg: `Ticket : ${ticket.number} was served`
+            })
+        } else {
+            callback({
+                ok: false,
+                msg: 'No tickets found to serve'
+            })
+        }
+
     });
 
 }

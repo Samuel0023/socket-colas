@@ -1,1 +1,1 @@
-{ "lastTicket": 1, "dateToday": 14, "tickets": [{ "number": 1, "desk": "escritorio-1" }], "lastfourtickets": [] }
+{"lastTicket":9,"dateToday":17,"tickets":[],"lastfourtickets":[{"number":9,"desk":"Escritorio 1"},{"number":8,"desk":"Escritorio 1"},{"number":7,"desk":"Escritorio 1"},{"number":6,"desk":"Escritorio 1"}]}
