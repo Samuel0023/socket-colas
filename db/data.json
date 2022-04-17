@@ -1,1 +1,11 @@
-{"lastTicket":9,"dateToday":17,"tickets":[],"lastfourtickets":[{"number":9,"desk":"Escritorio 1"},{"number":8,"desk":"Escritorio 1"},{"number":7,"desk":"Escritorio 1"},{"number":6,"desk":"Escritorio 1"}]}
+{
+    "lastTicket": 6,
+    "dateToday": 17,
+    "tickets": [{ "number": 6, "desk": null }],
+    "lastfourtickets": [
+        { "number": 5, "desk": "Escritorio 1" },
+        { "number": 4, "desk": "Escritorio 1" },
+        { "number": 3, "desk": "Escritorio 1" },
+        { "number": 2, "desk": "Escritorio 1" }
+    ]
+}

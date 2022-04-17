@@ -27,7 +27,7 @@ const socketController = (socket) => {
         if (ticket = ticketControl.serveTicket(desk)) {
             callback({
                 ok: true,
-                msg: `Ticket : ${ticket.number} was served`
+                ticket: ticket
             })
         } else {
             callback({

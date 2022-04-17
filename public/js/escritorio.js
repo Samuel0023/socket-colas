@@ -9,10 +9,15 @@ const socket = io();
 
 const lblDesk = document.querySelector('h1');
 const btnServe = document.querySelector('button');
+const lblTicket = document.querySelector('small');
+const divAlert = document.querySelector('.alert');
+
 
 const desk = searchParams.get('escritorio');
 lblDesk.innerText = desk;
 console.log(desk);
+
+divAlert.style.display = 'none';
 
 socket.on('connect', () => {
     // console.log('Conectado');
@@ -35,8 +40,13 @@ socket.on('last-ticket', (last) => {
 });
 
 btnServe.addEventListener('click', () => {
+    //                                    payload
+    socket.emit('serve-ticket', { desk }, ({ ok, ticket, msg }) => {
+        if (!ok) {
+            lblTicket.innerText = 'nadie.';
+            return divAlert.style.display = '';
+        }
 
-    socket.emit('serve-ticket', { desk }, (payload) => {
-        console.log(payload);
+        lblTicket.innerText = 'Ticket ' + ticket.number;
     })
 });
