@@ -1,5 +1,5 @@
 # Socket-Tickets
 
-Un servidor de Websockets usando Node, Express y Socket.io
+Una aplicacion de colas y tickets usando nodejs y socket.io
 
 > use npm install
