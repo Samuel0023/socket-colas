@@ -2,4 +2,4 @@
 
 Un servidor de Websockets usando Node, Express y Socket.io
 
-use (<npm install>) to use 
+> use npm install
