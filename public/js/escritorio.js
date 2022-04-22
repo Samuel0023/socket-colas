@@ -12,6 +12,7 @@ const btnServe = document.querySelector('button');
 const lblTicket = document.querySelector('small');
 const divAlert = document.querySelector('.alert');
 
+const lblPending = document.querySelector('#lblPendientes');
 
 const desk = searchParams.get('escritorio');
 lblDesk.innerText = desk;
@@ -39,9 +40,17 @@ socket.on('last-ticket', (last) => {
     // lblNuevoTicket.innerHTML = 'Ticket ' + last;
 });
 
+
+socket.on('pending-tickets', (payload) => {
+    lblPending.innerText = payload.length;
+
+    divAlert.style.display = 'none';
+});
 btnServe.addEventListener('click', () => {
     //                                    payload
     socket.emit('serve-ticket', { desk }, ({ ok, ticket, msg }) => {
+
+
         if (!ok) {
             lblTicket.innerText = 'nadie.';
             return divAlert.style.display = '';
