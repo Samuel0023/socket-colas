@@ -50,7 +50,6 @@ btnServe.addEventListener('click', () => {
     //                                    payload
     socket.emit('serve-ticket', { desk }, ({ ok, ticket, msg }) => {
 
-
         if (!ok) {
             lblTicket.innerText = 'nadie.';
             return divAlert.style.display = '';
