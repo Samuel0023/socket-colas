@@ -7,6 +7,7 @@ const socketController = (socket) => {
     //console.log('Cliente conectado', socket.id);
 
     socket.emit('last-ticket', ticketControl.lastTicket);
+    socket.emit('actual-state', ticketControl.lastfourtickets);
 
     socket.on('next-ticket', (payload, callback) => {
         const next = ticketControl.next();
@@ -24,6 +25,8 @@ const socketController = (socket) => {
         }
 
         var ticket;
+        socket.broadcast.emit('actual-state', ticketControl.lastfourtickets);
+
         if (ticket = ticketControl.serveTicket(desk)) {
             callback({
                 ok: true,
